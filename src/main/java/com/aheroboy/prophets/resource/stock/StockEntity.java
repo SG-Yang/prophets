@@ -1,5 +1,6 @@
 package com.aheroboy.prophets.resource.stock;
 
+import lombok.EqualsAndHashCode;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import com.aheroboy.prophets.framework.AbstractEntity;
@@ -12,18 +13,47 @@ import java.util.Date;
 
 @Data
 @Document(collection = "stock")
+@EqualsAndHashCode(exclude = {"date,time"})
 public class StockEntity extends AbstractEntity {
     private String symbol;
     private String code;
+    private BigDecimal open;
+    private BigDecimal settlement;
     private BigDecimal trade;
+    private BigDecimal marketPrice;
+    private BigDecimal high;
+    private BigDecimal low;
+    private BigDecimal comBuyPrice;
+    private BigDecimal comSellPrice;
+    private BigDecimal doneCount;
+    private BigDecimal doneAmount;
+    private BigDecimal buy1Count;
+    private BigDecimal buy1Price;
+    private BigDecimal buy2Count;
+    private BigDecimal buy2Price;
+    private BigDecimal buy3Count;
+    private BigDecimal buy3Price;
+    private BigDecimal buy4Count;
+    private BigDecimal buy4Price;
+    private BigDecimal buy5Count;
+    private BigDecimal buy5Price;
+    private BigDecimal sell1Count;
+    private BigDecimal sell1Price;
+    private BigDecimal sell2Count;
+    private BigDecimal sell2Price;
+    private BigDecimal sell3Count;
+    private BigDecimal sell3Price;
+    private BigDecimal sell4Count;
+    private BigDecimal sell4Price;
+    private BigDecimal sell5Count;
+    private BigDecimal sell5Price;
+    private String date;
+    private String time;
+    //
     private BigDecimal pricechange;
     private BigDecimal changepercent;
     private BigDecimal buy;
     private BigDecimal sell;
-    private BigDecimal settlement;
-    private BigDecimal open;
-    private BigDecimal high;
-    private BigDecimal low;
     private Long volume;
     private Long amount;
     private Time ticktime;
@@ -32,29 +62,5 @@ public class StockEntity extends AbstractEntity {
     private BigDecimal mktcap;
     private BigDecimal nmc;
     private BigDecimal turnoverratio;
-    /**
-     * {
-     "symbol": "sh600176",
-     "code": "600176",
-     "name": "中国巨石",
-     "trade": "10.460",
-     "pricechange": "0.180",
-     "changepercent": "1.751",
-     "buy": "10.450",
-     "sell": "10.460",
-     "settlement": "10.280",
-     "open": "10.280",
-     "high": "10.630",
-     "low": "10.280",
-     "volume": 45054316,
-     "amount": 470053069,
-     "ticktime": "15:00:00",
-     "per": 9.285,
-     "pb": 2.397,
-     "mktcap": 2544036.780564,
-     "nmc": 2544036.780564,
-     "turnoverratio": 1.85244
-     }
-     */
 
 }

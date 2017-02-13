@@ -20,13 +20,11 @@ import com.google.common.collect.Maps;
 
 public class MarketCenterActor extends AbstractActor<MarketCenter> {
     public static final String GLOBLE_SNAPSHOT_NAME = "MARKET_CENTER";
+    private static  final Map<String, CategoryActor> categories = Maps.newHashMap();
 
     public MarketCenterActor() {
         super(null);
     }
-
-    private Map<String, CategoryActor> categories = Maps.newHashMap();
-
     @Autowired
     private MarketCenterRepository repository;
 

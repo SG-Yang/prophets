@@ -23,8 +23,6 @@ public class AutoUpdateService implements ActorService {
 
     @Autowired
     private ActorManager actorManager;
-    @Autowired
-    private ObjectMapper objectMapper;
 
     private List<CategoryActor> leafActors;
 
@@ -43,6 +41,8 @@ public class AutoUpdateService implements ActorService {
                 StockActor sa = new StockActor(se);
                 sa.setActorName(bizId);
                 sa.setRoot(true);
+                sa.setSnapshotRep(snapshotRep);
+                sa.setRep(stockEntityRep);
                 actorManager.addStockActor(sa);
             });
         });

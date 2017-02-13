@@ -44,8 +44,6 @@ public class AutoDiscoveryService implements ActorService {
     @Autowired
     private ActorManager actorManager;
     @Autowired
-    private StockEntityRepository stockEntityRepository;
-    @Autowired
     private Executor asyncExecutor;
     @Autowired
     private ObjectMapper mapper;
@@ -81,11 +79,12 @@ public class AutoDiscoveryService implements ActorService {
                             new TypeReference<List<StockEntity>>() {
                             });
                     stockEntries.forEach((StockEntity se) -> {
-                        if (!leaves.containsKey(se.getCode())) {
+                        if (!leaves.containsKey(se.getSymbol())) {
                             StockActor stockActor = new StockActor(se);
-                            stockActor.setRep(stockEntityRepository);
+                            stockActor.setRep(seRep);
                             stockActor.setSnapshotRep(snapshotRep);
-                            stockActor.init(se.getCode(), Boolean.TRUE);
+                            //String name = Character.isLetter(se.getCode().charAt(0)) ?
+                            stockActor.init(se.getSymbol(), Boolean.TRUE);
                             stockActor.setObjectMapper(mapper);
                             actorManager.addStockActor(stockActor);
                         }

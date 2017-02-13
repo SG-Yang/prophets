@@ -18,7 +18,7 @@ public abstract class AbstractActor<E extends AbstractEntity> implements Actor {
 	private Map<String,? extends Actor> subActors = Maps.newHashMap();
 	
 	@Autowired
-	private SnapshotRepository snapshotRep;
+	protected SnapshotRepository snapshotRep;
 
 	protected E entity;
 	
