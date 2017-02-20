@@ -1,36 +1,20 @@
 package com.aheroboy.prophets.framework;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.concurrent.Executor;
-import java.util.function.BiConsumer;
-import java.util.function.Consumer;
-
-import com.aheroboy.prophets.resource.stock.SinaStockResource;
-import com.aheroboy.prophets.resource.stock.StockEntity;
-import com.fasterxml.jackson.core.JsonParser;
-import com.fasterxml.jackson.core.type.TypeReference;
-import com.fasterxml.jackson.databind.JsonDeserializer;
-import com.fasterxml.jackson.databind.JsonNode;
-import com.fasterxml.jackson.databind.JsonSerializer;
-import com.fasterxml.jackson.databind.ObjectMapper;
-import com.fasterxml.jackson.databind.util.JSONPObject;
-import com.github.fge.jackson.JacksonUtils;
-import com.github.fge.jackson.JsonLoader;
-import com.google.common.collect.Lists;
-import com.mongodb.util.JSON;
-import jdk.nashorn.internal.parser.JSONParser;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.jackson.JsonObjectDeserializer;
-import org.springframework.stereotype.Service;
-
 import com.aheroboy.prophets.actor.CategoryActor;
 import com.aheroboy.prophets.actor.MarketCenterActor;
 import com.aheroboy.prophets.actor.StockActor;
 import com.aheroboy.prophets.actor.StockEntityRepository;
 import com.aheroboy.prophets.resource.MarketCategory;
-import org.springframework.web.client.RestTemplate;
+import com.aheroboy.prophets.resource.stock.SinaStockResource;
+import com.aheroboy.prophets.resource.stock.StockEntity;
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Map;
+import java.util.concurrent.Executor;
 
 @Service
 public class AutoDiscoveryService implements ActorService {
@@ -43,8 +27,6 @@ public class AutoDiscoveryService implements ActorService {
     private SinaStockResource resource;
     @Autowired
     private ActorManager actorManager;
-    @Autowired
-    private StockEntityRepository stockEntityRepository;
     @Autowired
     private Executor asyncExecutor;
     @Autowired
@@ -81,11 +63,12 @@ public class AutoDiscoveryService implements ActorService {
                             new TypeReference<List<StockEntity>>() {
                             });
                     stockEntries.forEach((StockEntity se) -> {
-                        if (!leaves.containsKey(se.getCode())) {
+                        if (!leaves.containsKey(se.getSymbol())) {
                             StockActor stockActor = new StockActor(se);
-                            stockActor.setRep(stockEntityRepository);
+                            stockActor.setRep(seRep);
                             stockActor.setSnapshotRep(snapshotRep);
-                            stockActor.init(se.getCode(), Boolean.TRUE);
+                            //String name = Character.isLetter(se.getCode().charAt(0)) ?
+                            stockActor.init(se.getSymbol(), Boolean.TRUE);
                             stockActor.setObjectMapper(mapper);
                             actorManager.addStockActor(stockActor);
                         }

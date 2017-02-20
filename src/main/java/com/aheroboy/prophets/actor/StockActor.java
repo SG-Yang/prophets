@@ -5,10 +5,8 @@ import com.aheroboy.prophets.framework.AbstractRepository;
 import com.aheroboy.prophets.framework.ActorSnapshot;
 import com.aheroboy.prophets.framework.SnapshotRepository;
 import com.aheroboy.prophets.resource.stock.StockEntity;
-
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.sun.xml.internal.bind.v2.runtime.unmarshaller.LocatorEx;
 import lombok.Data;
 import lombok.extern.slf4j.Slf4j;
 import org.apache.commons.lang3.StringUtils;

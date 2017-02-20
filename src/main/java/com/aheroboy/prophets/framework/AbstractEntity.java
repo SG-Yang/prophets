@@ -7,14 +7,14 @@ import lombok.EqualsAndHashCode;
 @Data
 @EqualsAndHashCode(callSuper=true)
 public class AbstractEntity extends ID {
-	private Date createdDate;
-	private Date updatedDate;
+	private String createdDate;
+	private String updatedDate;
 	private String bizId;
 	private long version;
 	private String name;
 	private boolean isLeaf;
 	public AbstractEntity(){
-		Date newDate = new Date();
+		String newDate = Utils.YYYY_MM_DD_HHMMSS.get().format(new Date());
 		this.createdDate = newDate;
 		this.updatedDate = newDate;
 		this.version = 1;

@@ -1,17 +1,16 @@
 package com.aheroboy.prophets.framework;
 
-import java.util.List;
-import java.util.Map;
-
-import com.fasterxml.jackson.databind.ObjectMapper;
-import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Service;
 import com.aheroboy.prophets.actor.CategoryActor;
 import com.aheroboy.prophets.actor.MarketCenterActor;
 import com.aheroboy.prophets.actor.StockActor;
 import com.aheroboy.prophets.actor.StockEntityRepository;
 import com.aheroboy.prophets.resource.MarketCategory;
 import com.aheroboy.prophets.resource.stock.StockEntity;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import java.util.List;
+import java.util.Map;
 
 @Service
 public class AutoUpdateService implements ActorService {
@@ -23,8 +22,6 @@ public class AutoUpdateService implements ActorService {
 
     @Autowired
     private ActorManager actorManager;
-    @Autowired
-    private ObjectMapper objectMapper;
 
     private List<CategoryActor> leafActors;
 
@@ -43,6 +40,8 @@ public class AutoUpdateService implements ActorService {
                 StockActor sa = new StockActor(se);
                 sa.setActorName(bizId);
                 sa.setRoot(true);
+                sa.setSnapshotRep(snapshotRep);
+                sa.setRep(stockEntityRep);
                 actorManager.addStockActor(sa);
             });
         });

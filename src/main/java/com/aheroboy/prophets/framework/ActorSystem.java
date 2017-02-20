@@ -1,12 +1,9 @@
 package com.aheroboy.prophets.framework;
 
-import java.util.concurrent.Executor;
-
+import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.aheroboy.prophets.actor.MarketCenterActor;
-
-import lombok.Data;
+import java.util.concurrent.Executor;
 
 @Data
 public class ActorSystem implements ActorService{

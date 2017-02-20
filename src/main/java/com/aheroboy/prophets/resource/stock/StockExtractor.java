@@ -15,7 +15,6 @@ public class StockExtractor implements Extractor<StockEntity> {
             String[] columns = rawData.split("=")[1].split(",");
             entity.setName(columns[0]);
             entity.setOpen(new BigDecimal(columns[1]));
-            entity.getSettlement()
         }
         return entity;
     }
