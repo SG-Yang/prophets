@@ -1,3 +1,7 @@
 target
 .idea
 prophets.iml
+.tmp
+bower_components
+node_modules
+docs
