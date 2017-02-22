@@ -37,10 +37,12 @@ public class ActorFactor {
         enhancer.setSuperclass(obj.getClass());
         enhancer.setCallback(new MethodInterceptor() {
             @Override public Object intercept(Object o, Method method, Object[] objects, MethodProxy methodProxy) throws Throwable {
-                return null;
+                return methodProxy.invoke(o,objects);
             }
         });
-
+        Object obj1 = enhancer.create();
+        getter = obj1.getClass().getMethod("getIntValue");
+        System.out.println(getter.invoke(obj1));
         return obj;
 
     }
