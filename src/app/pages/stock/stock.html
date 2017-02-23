@@ -1,4 +1,6 @@
-<div>Stock</div>
-<div ng-repeat="vegetable in vegetables">
-    name is: {{vegetable}}.<br/>
+<div ng-controller="StockPageCtrl">
+    <div ng-repeat="vegetable in vegetables">
+        <label>----</label>
+        name is: {{vegetable.id}}<br/>
+    </div>
 </div>

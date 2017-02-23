@@ -9,8 +9,7 @@
       .config(routeConfig).factory('stockService', loadStock);
 
     function loadStock($resource){
-         return $resource('http://localhost:8080/as/stocks/:typeId',{
-             typeId:'RareMetals'
+         return $resource('http://localhost:8080/as/stocks/typeId',{
         });
     }
 

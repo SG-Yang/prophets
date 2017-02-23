@@ -5,6 +5,7 @@ import java.util.Map;
 
 import com.aheroboy.prophets.resource.stock.StockEntity;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
 import org.springframework.web.bind.annotation.*;
 
 import com.aheroboy.prophets.framework.ActorSnapshot;
@@ -17,6 +18,7 @@ import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
 
 @RestController
+@CrossOrigin
 @RequestMapping("/as")
 public class ActorSystemApi {
 
@@ -33,7 +35,7 @@ public class ActorSystemApi {
 		return 1000L;
 	}
 	@RequestMapping(value = "/stocks/{typeId}", method = RequestMethod.GET)
-	public @ResponseBody List<StockEntity> listAll(@PathVariable String typeId) {
+	public @ResponseBody List<StockEntity> listAll(@PathVariable String typeId,@RequestHeader HttpHeaders headers) {
 		List<StockEntity> stocks = Lists.newArrayList();
 		StockEntity stockEntity = new StockEntity();
 		stockEntity.setSymbol("abc");
