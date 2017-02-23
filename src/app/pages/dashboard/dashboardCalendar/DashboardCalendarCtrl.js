@@ -5,7 +5,7 @@
 (function () {
   'use strict';
 
-  angular.module('BlurAdmin.pages.dashboard')
+  angular.module('Prophets.pages.dashboard')
       .controller('DashboardCalendarCtrl', DashboardCalendarCtrl);
 
   /** @ngInject */

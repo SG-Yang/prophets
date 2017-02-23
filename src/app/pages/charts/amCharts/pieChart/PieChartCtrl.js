@@ -5,7 +5,7 @@
 (function () {
   'use strict';
 
-  angular.module('BlurAdmin.pages.charts.amCharts')
+  angular.module('Prophets.pages.charts.amCharts')
       .controller('PieChartCtrl', PieChartCtrl);
 
   /** @ngInject */

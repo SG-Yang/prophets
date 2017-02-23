@@ -5,6 +5,6 @@
 (function () {
   'use strict';
 
-  angular.module('BlurAdmin.theme.inputs', []);
+  angular.module('Prophets.theme.inputs', []);
 
 })();

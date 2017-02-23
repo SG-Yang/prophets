@@ -5,10 +5,10 @@
 (function () {
   'use strict';
 
-  angular.module('BlurAdmin.pages.components', [
-    'BlurAdmin.pages.components.mail',
-    'BlurAdmin.pages.components.timeline',
-    'BlurAdmin.pages.components.tree',
+  angular.module('Prophets.pages.components', [
+    'Prophets.pages.components.mail',
+    'Prophets.pages.components.timeline',
+    'Prophets.pages.components.tree',
   ])
       .config(routeConfig);
 

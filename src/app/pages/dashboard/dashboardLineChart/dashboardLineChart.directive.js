@@ -5,7 +5,7 @@
 (function () {
   'use strict';
 
-  angular.module('BlurAdmin.pages.dashboard')
+  angular.module('Prophets.pages.dashboard')
       .directive('dashboardLineChart', dashboardLineChart);
 
   /** @ngInject */

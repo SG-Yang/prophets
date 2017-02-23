@@ -1,6 +1,6 @@
 'use strict';
 
-angular.module('BlurAdmin', [
+angular.module('Prophets', [
   'ngAnimate',
   'ui.bootstrap',
   'ui.sortable',
@@ -13,6 +13,6 @@ angular.module('BlurAdmin', [
   'ngJsTree',
   'angular-progress-button-styles',
 
-  'BlurAdmin.theme',
-  'BlurAdmin.pages'
+  'Prophets.theme',
+  'Prophets.pages'
 ]);

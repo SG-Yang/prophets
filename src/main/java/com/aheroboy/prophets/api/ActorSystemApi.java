@@ -3,11 +3,9 @@ package com.aheroboy.prophets.api;
 import java.util.List;
 import java.util.Map;
 
+import com.aheroboy.prophets.resource.stock.StockEntity;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import com.aheroboy.prophets.framework.ActorSnapshot;
 import com.aheroboy.prophets.framework.ActorSystem;
@@ -33,6 +31,25 @@ public class ActorSystemApi {
 	@RequestMapping(value = "/actor/count", method = RequestMethod.GET)
 	public @ResponseBody Long getActorCount() {
 		return 1000L;
+	}
+	@RequestMapping(value = "/stocks/{typeId}", method = RequestMethod.GET)
+	public @ResponseBody List<StockEntity> listAll(@PathVariable String typeId) {
+		List<StockEntity> stocks = Lists.newArrayList();
+		StockEntity stockEntity = new StockEntity();
+		stockEntity.setSymbol("abc");
+		stockEntity.setBizId(stockEntity.getSymbol());
+		stockEntity.setCode(stockEntity.getSymbol());
+		stockEntity.setAmount(100L);
+		stocks.add(stockEntity);
+
+		stockEntity = new StockEntity();
+		stockEntity.setSymbol("def");
+		stockEntity.setAmount(200L);
+		stockEntity.setBizId(stockEntity.getSymbol());
+		stockEntity.setCode(stockEntity.getSymbol());
+		stocks.add(stockEntity);
+		System.out.println("hello......");
+		return stocks;
 	}
 
 	@RequestMapping(value = "/actor/marketcenter/init", method = RequestMethod.GET)

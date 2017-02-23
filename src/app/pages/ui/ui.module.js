@@ -5,18 +5,18 @@
 (function () {
   'use strict';
 
-  angular.module('BlurAdmin.pages.ui', [
-    'BlurAdmin.pages.ui.typography',
-    'BlurAdmin.pages.ui.buttons',
-    'BlurAdmin.pages.ui.icons',
-    'BlurAdmin.pages.ui.modals',
-    'BlurAdmin.pages.ui.grid',
-    'BlurAdmin.pages.ui.alerts',
-    'BlurAdmin.pages.ui.progressBars',
-    'BlurAdmin.pages.ui.notifications',
-    'BlurAdmin.pages.ui.tabs',
-    'BlurAdmin.pages.ui.slider',
-    'BlurAdmin.pages.ui.panels',
+  angular.module('Prophets.pages.ui', [
+    'Prophets.pages.ui.typography',
+    'Prophets.pages.ui.buttons',
+    'Prophets.pages.ui.icons',
+    'Prophets.pages.ui.modals',
+    'Prophets.pages.ui.grid',
+    'Prophets.pages.ui.alerts',
+    'Prophets.pages.ui.progressBars',
+    'Prophets.pages.ui.notifications',
+    'Prophets.pages.ui.tabs',
+    'Prophets.pages.ui.slider',
+    'Prophets.pages.ui.panels',
   ])
       .config(routeConfig);
 

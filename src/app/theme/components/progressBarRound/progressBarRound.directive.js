@@ -5,7 +5,7 @@
 (function () {
     'use strict';
 
-    angular.module('BlurAdmin.theme.components')
+    angular.module('Prophets.theme.components')
         .directive('progressBarRound', progressBarRound);
 
     /** @ngInject */

@@ -4,7 +4,7 @@
 (function () {
   'use strict';
 
-  angular.module('BlurAdmin.theme')
+  angular.module('Prophets.theme')
       .directive('animatedChange', animatedChange);
 
   /** @ngInject */

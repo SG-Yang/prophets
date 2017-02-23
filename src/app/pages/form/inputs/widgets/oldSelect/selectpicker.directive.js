@@ -6,7 +6,7 @@
 (function () {
   'use strict';
 
-  angular.module('BlurAdmin.pages.form')
+  angular.module('Prophets.pages.form')
       .directive('selectpicker', selectpicker);
 
   /** @ngInject */

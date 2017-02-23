@@ -34,6 +34,7 @@ public class ActorManager implements ActorService {
 
     @Override
     public void start() {
+        /**
         asychExecutor.execute(() -> {
            while(true){
                try {
@@ -47,5 +48,6 @@ public class ActorManager implements ActorService {
                }
            }
         });
+         **/
     }
 }

@@ -5,7 +5,7 @@
 (function () {
   'use strict';
 
-  angular.module('BlurAdmin.pages.maps')
+  angular.module('Prophets.pages.maps')
       .controller('LeafletPageCtrl', LeafletPageCtrl);
 
   /** @ngInject */
