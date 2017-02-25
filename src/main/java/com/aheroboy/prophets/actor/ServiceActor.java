@@ -11,7 +11,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 @Data
 @Document(collection = "service")
 public class ServiceActor extends AbstractActor<ServiceProvider> {
-    @Override public void update() {
+    public void update() {
 
     }
 }

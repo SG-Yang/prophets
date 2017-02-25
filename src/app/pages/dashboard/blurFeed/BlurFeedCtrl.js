@@ -11,6 +11,7 @@
   /** @ngInject */
   function BlurFeedCtrl($scope) {
     $scope.feed = [
+        /**
       {
         type: 'text-message',
         author: 'Kostya',
@@ -120,6 +121,7 @@
         ago: '9 days ago',
         expanded: false,
       }
+         **/
     ];
 
     $scope.expandMessage = function(message){
