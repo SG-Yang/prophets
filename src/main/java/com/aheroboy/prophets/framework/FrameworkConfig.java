@@ -21,7 +21,7 @@ import org.springframework.scheduling.annotation.SchedulingConfigurer;
 import org.springframework.scheduling.concurrent.ThreadPoolTaskScheduler;
 import org.springframework.scheduling.config.ScheduledTaskRegistrar;
 
-import com.aheroboy.prophets.actor.MarketCenterActor;
+import com.aheroboy.prophets.actor.HierarchyActor;
 
 @Configuration
 @EnableScheduling
@@ -54,8 +54,8 @@ public class FrameworkConfig implements SchedulingConfigurer, AsyncConfigurer {
     }
 
     @Bean
-    public MarketCenterActor marketCenterActor() {
-        return new MarketCenterActor();
+    public HierarchyActor marketCenterActor() {
+        return new HierarchyActor();
     }
 
     @Bean

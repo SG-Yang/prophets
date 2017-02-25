@@ -3,6 +3,7 @@ package com.aheroboy.prophets.framework;
 import lombok.Data;
 import org.springframework.beans.factory.annotation.Autowired;
 
+import java.util.List;
 import java.util.concurrent.Executor;
 
 @Data
@@ -29,6 +30,9 @@ public class ActorSystem implements ActorService{
 		sms.init();
 	}
 
+	public List<?> getEntriesByType(String typeId){
+		return am.getActors(typeId);
+	}
 
 	@Override
 	public void start() {

@@ -1,7 +1,7 @@
 package com.aheroboy.prophets.framework;
 
 import com.aheroboy.prophets.actor.CategoryActor;
-import com.aheroboy.prophets.actor.MarketCenterActor;
+import com.aheroboy.prophets.actor.HierarchyActor;
 import com.aheroboy.prophets.actor.StockActor;
 import com.aheroboy.prophets.actor.StockEntityRepository;
 import com.aheroboy.prophets.resource.MarketCategory;
@@ -49,7 +49,7 @@ public class AutoDiscoveryService implements ActorService {
     }
 
     private void discoveryStock() {
-        MarketCenterActor mca = actorManager.getMca();
+        HierarchyActor mca = actorManager.getMca();
         leafActors = mca.getLeafActors();
         leafActors.forEach((CategoryActor t) -> {
             try {
@@ -60,8 +60,8 @@ public class AutoDiscoveryService implements ActorService {
                 int endIdx = pageSize;
                 while ((data = resource.get(startIdx, endIdx, t.getActorName())) != null && !"null".equals(data)) {
                     List<StockEntity> stockEntries = mapper.readValue(data,
-                            new TypeReference<List<StockEntity>>() {
-                            });
+                        new TypeReference<List<StockEntity>>() {
+                        });
                     stockEntries.forEach((StockEntity se) -> {
                         if (!leaves.containsKey(se.getSymbol())) {
                             StockActor stockActor = new StockActor(se);
@@ -71,6 +71,11 @@ public class AutoDiscoveryService implements ActorService {
                             stockActor.init(se.getSymbol(), Boolean.TRUE);
                             stockActor.setObjectMapper(mapper);
                             actorManager.addStockActor(stockActor);
+                            MarketCategory category = new MarketCategory();
+                            category.setCode(se.getSymbol());
+                            category.setBizId(se.getSymbol());
+                            category.setVersion(1);
+                            leaves.put(se.getSymbol(),category);
                         }
                     });
                     startIdx++;

@@ -1,6 +1,8 @@
-<div ng-controller="StockPageCtrl">
-    <div ng-repeat="vegetable in vegetables">
-        <label>----</label>
-        name is: {{vegetable.id}}<br/>
+<div class="row">
+    <div class="col-md-12">
+        <div ba-panel ba-panel-title="Stock List" ba-panel-class="with-scroll">
+            <div include-with-scope="app/pages/stock/stocklist.html"></div>
+        </div>
     </div>
 </div>
+

@@ -1,7 +1,7 @@
 package com.aheroboy.prophets.framework;
 
 import com.aheroboy.prophets.actor.CategoryActor;
-import com.aheroboy.prophets.actor.MarketCenterActor;
+import com.aheroboy.prophets.actor.HierarchyActor;
 import com.aheroboy.prophets.actor.StockActor;
 import com.aheroboy.prophets.actor.StockEntityRepository;
 import com.aheroboy.prophets.resource.MarketCategory;
@@ -26,7 +26,7 @@ public class AutoUpdateService implements ActorService {
     private List<CategoryActor> leafActors;
 
     public void init() {
-        MarketCenterActor mca = actorManager.getMca();
+        HierarchyActor mca = actorManager.getMca();
         leafActors = mca.getLeafActors();
         leafActors.forEach((CategoryActor t) -> {
             Map<String, MarketCategory> leaves = t.getEntity().getLeafCategories();

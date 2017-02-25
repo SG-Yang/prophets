@@ -1,7 +1,9 @@
 package com.aheroboy.prophets.framework;
 
-public interface Actor {
+import com.aheroboy.prophets.actor.ActorPath;
 
+public interface Actor {
+    Actor getActorsByPath(ActorPath path);
     void update();
 
 }

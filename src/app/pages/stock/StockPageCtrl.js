@@ -10,7 +10,7 @@
 
   /** @ngInject */
   function StockPageCtrl($scope,stockService) {
-    $scope.vegetables = stockService.query();
+    $scope.smartTableData = stockService.query();
   }
 
 })();

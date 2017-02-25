@@ -1,0 +1,85 @@
+<div class="horizontal-scroll" ng-controller="StockPageCtrl">
+    <div class="form-group select-page-size-wrap ">
+        <label>Rows on page
+            <select class="form-control selectpicker show-tick" title="Rows on page" selectpicker
+                    ng-model="smartTablePageSize" ng-options="i for i in [5,10,15,20,25]">
+            </select>
+        </label>
+    </div>
+    <table class="table" st-table="something ">
+        <thead>
+        <tr class="sortable ">
+            <!-- <th class="table-id" st-sort="id" st-sort-default="true">#</th>
+             <th st-sort="symbol">symbol</th>-->
+            <th st-sort="code">code</th>
+            <th st-sort="name">name</th>
+            <th st-sort="version">version</th>
+            <th st-sort="trade">trade</th>
+            <th st-sort="pricechange">pricechange</th>
+            <th st-sort="changepercent">changepercent</th>
+            <th st-sort="buy">buy</th>
+            <th st-sort="sell">sell</th>
+            <th st-sort="settlement">settlement</th>
+            <th st-sort="open">open</th>
+            <th st-sort="high">high</th>
+            <th st-sort="low">low</th>
+            <th st-sort="volume">volume</th>
+            <th st-sort="amount">amount</th>
+            <th st-sort="ticktime">ticktime</th>
+            <th st-sort="per">per</th>
+            <th st-sort="pb">pb</th>
+            <th st-sort="mktcap">mktcap</th>
+            <th st-sort="nmc">nmc</th>
+            <th st-sort="turnoverratio">turnoverratio</th>
+        </tr>
+        <!--
+        <tr>
+          <th></th>
+          <th><input st-search="firstName" placeholder="Search First Name" class="input-sm form-control search-input"
+                     type="search"/></th>
+          <th><input st-search="lastName" placeholder="Search Last Name" class="input-sm form-control search-input"
+                     type="search"/></th>
+          <th><input st-search="username" placeholder="Search Username" class="input-sm form-control search-input"
+                     type="search"/></th>
+          <th><input st-search="email" placeholder="Search Email" class="input-sm form-control search-input" type="search"/>
+          </th>
+          <th><input st-search="age" placeholder="Search Age" class="input-sm form-control search-input" type="search"/>
+          </th>
+        </tr>
+        -->
+        </thead>
+        <tbody>
+        <tr ng-repeat="item in smartTableData">
+            <!--  <td class="table-id">{{item.id}}</td>
+             <td>{{item.symbol}}</td>-->
+            <td>{{item.code}}</td>
+            <td>{{item.name}}</td>
+            <td>{{item.version}}</td>
+            <td>{{item.trade}}</td>
+            <td>{{item.pricechange}}</td>
+            <td>{{item.changepercent}}</td>
+            <td>{{item.buy}}</td>
+            <td>{{item.sell}}</td>
+            <td>{{item.settlement}}</td>
+            <td>{{item.open}}</td>
+            <td>{{item.high}}</td>
+            <td>{{item.low}}</td>
+            <td>{{item.volume}}</td>
+            <td>{{item.amount}}</td>
+            <td>{{item.ticktime}}</td>
+            <td>{{item.per}}</td>
+            <td>{{item.pb}}</td>
+            <td>{{item.mktcap}}</td>
+            <td>{{item.nmc}}</td>
+            <td>{{item.turnoverratio}}</td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+            <td colspan="6" class="text-center">
+                <div st-pagination="" st-items-by-page="smartTablePageSize" st-displayed-pages="5"></div>
+            </td>
+        </tr>
+        </tfoot>
+    </table>
+</div>

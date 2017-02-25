@@ -36,6 +36,7 @@ public class ActorSystemApi {
 	}
 	@RequestMapping(value = "/stocks/{typeId}", method = RequestMethod.GET)
 	public @ResponseBody List<StockEntity> listAll(@PathVariable String typeId,@RequestHeader HttpHeaders headers) {
+		/**
 		List<StockEntity> stocks = Lists.newArrayList();
 		StockEntity stockEntity = new StockEntity();
 		stockEntity.setSymbol("abc");
@@ -51,7 +52,8 @@ public class ActorSystemApi {
 		stockEntity.setCode(stockEntity.getSymbol());
 		stocks.add(stockEntity);
 		System.out.println("hello......");
-		return stocks;
+		 **/
+		return (List<StockEntity>)actorSystem.getEntriesByType(typeId);
 	}
 
 	@RequestMapping(value = "/actor/marketcenter/init", method = RequestMethod.GET)

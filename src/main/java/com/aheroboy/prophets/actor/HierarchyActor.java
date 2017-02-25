@@ -17,17 +17,19 @@ import com.aheroboy.prophets.resource.MarketCategory;
 import com.aheroboy.prophets.resource.MarketCenterRepository;
 import com.google.common.collect.Lists;
 import com.google.common.collect.Maps;
+import org.springframework.data.annotation.Transient;
 
-public class MarketCenterActor extends AbstractActor<MarketCenter> {
+public class HierarchyActor extends AbstractActor<MarketCenter> {
     public static final String GLOBLE_SNAPSHOT_NAME = "MARKET_CENTER";
 
-    public MarketCenterActor() {
+    public HierarchyActor() {
         super(null);
     }
 
     private Map<String, CategoryActor> categories = Maps.newHashMap();
 
     @Autowired
+    @Transient
     private MarketCenterRepository repository;
 
     public void init(String actorName, boolean isRoot) {
@@ -41,7 +43,6 @@ public class MarketCenterActor extends AbstractActor<MarketCenter> {
                     Map<String, CategoryActor> subActors = createSubActor(u);
                     cActor.setSubActors(subActors);
                 }
-
             });
         }
     }
